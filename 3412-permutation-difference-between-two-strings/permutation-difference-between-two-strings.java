@@ -7,6 +7,7 @@ class Solution {
             for(int j=0;j<t.length();j++){
                 if(s1[i]==s2[j]){
                     sum+=Math.abs(i-j);
+                    break;
                 }
             }
         }return sum;
