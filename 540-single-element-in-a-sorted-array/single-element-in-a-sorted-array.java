@@ -6,9 +6,9 @@ class Solution {
             if (mid % 2 == 1) mid--;
             
             if (nums[mid] == nums[mid + 1]) {
-                l = mid + 2; // move right
+                l = mid + 2;
             } else {
-                r = mid; // move left (including mid)
+                r = mid;
             }
         }
         
