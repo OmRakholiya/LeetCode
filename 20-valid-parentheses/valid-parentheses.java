@@ -1,11 +1,31 @@
+class Solution {
+    public boolean isValid(String s) {
+        while (s.contains("()") || s.contains("{}") || s.contains("[]")) {
+            s = s.replace("()", "")
+                 .replace("{}", "")
+                 .replace("[]", "");
+        }
+        return s.isEmpty();
+    }
+}
+
+
 // class Solution {
 //     public boolean isValid(String s) {
-//         while (s.contains("()") || s.contains("{}") || s.contains("[]")) {
-//             s = s.replace("()", "")
-//                  .replace("{}", "")
-//                  .replace("[]", "");
-//         }
-//         return s.isEmpty();
+//         char[] stack = new char[s.length()];
+//         int top = -1;
+//         for(char c:s.toCharArray()){
+//             if(c=='('  || c=='{'  || c=='['){
+//                 stack[++top] = c;
+//             }
+//             else{
+//                 if(top==-1)  return false;
+//                 char open = stack[top--];
+//                 if((c==')' && open!='(') || (c=='}'&& open!='{') || (c==']' && open!='[')){
+//                     return false;
+//                 }
+//             }
+//         }return top==-1;
 //     }
 // }
 
@@ -51,21 +71,3 @@
 // }
 
 
-class Solution {
-    public boolean isValid(String s) {
-        char[] stack = new char[s.length()];
-        int top = -1;
-        for(char c:s.toCharArray()){
-            if(c=='('  || c=='{'  || c=='['){
-                stack[++top] = c;
-            }
-            else{
-                if(top==-1)  return false;
-                char open = stack[top--];
-                 if((c==')' && open!='(') || (c=='}'&& open!='{') || (c==']' && open!='[')){
-                    return false;
-                }
-            }
-        }return top==-1;
-    }
-}
