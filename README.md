@@ -5,6 +5,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/OmRakholiya/LeetCode/tree/master/0001-two-sum) |
+| [0053-maximum-subarray](https://github.com/OmRakholiya/LeetCode/tree/master/0053-maximum-subarray) |
 | [0268-missing-number](https://github.com/OmRakholiya/LeetCode/tree/master/0268-missing-number) |
 | [0287-find-the-duplicate-number](https://github.com/OmRakholiya/LeetCode/tree/master/0287-find-the-duplicate-number) |
 ## Hash Table
@@ -34,4 +35,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0268-missing-number](https://github.com/OmRakholiya/LeetCode/tree/master/0268-missing-number) |
+## Divide and Conquer
+|  |
+| ------- |
+| [0053-maximum-subarray](https://github.com/OmRakholiya/LeetCode/tree/master/0053-maximum-subarray) |
+## Dynamic Programming
+|  |
+| ------- |
+| [0053-maximum-subarray](https://github.com/OmRakholiya/LeetCode/tree/master/0053-maximum-subarray) |
 <!---LeetCode Topics End-->
