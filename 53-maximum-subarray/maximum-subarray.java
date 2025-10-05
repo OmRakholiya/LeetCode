@@ -10,7 +10,6 @@ class Solution {
     }
 }
 
-
 // class Solution {
 //     public int maxSubArray(int[] nums) {
 //         int maxsum=Integer.MIN_VALUE;
