@@ -8,8 +8,8 @@ class Solution {
                     zero++;
                 }
                 if(zero<=k){
-                    int len=j-i+1;
-                    maxLen=Math.max(maxLen,len);
+                    // int len=j-i+1;
+                    maxLen=Math.max(maxLen,j-i+1);
                 }
                 else{
                     break;
