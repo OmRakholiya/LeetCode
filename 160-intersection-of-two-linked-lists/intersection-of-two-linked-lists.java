@@ -21,20 +21,81 @@
 //     }
 // }
 
+// public class Solution {
+//     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+//         HashSet<ListNode> set = new HashSet<>();
+//         ListNode curr = headA;
+//         while(curr!=null){
+//             set.add(curr);
+//             curr=curr.next;
+//         }
+//         curr=headB;
+//         while(curr!=null){
+//             if(set.contains(curr)){
+//                 return curr;
+//             }
+//             curr=curr.next;
+//         }return null;
+//     }
+// }
+
+
+// public class Solution {
+//     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+//         if(headA==null || headB==null){
+//             return null;
+//         }
+//         ListNode a=headA,b=headB;
+//         while(a!=b){
+//             a=(a==null) ? headB : a.next;
+//             b=(b==null) ? headA : b.next;
+//         }
+//         return a;
+//     }
+// }
+
+// public class Solution {
+//     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+//         if(headA==null || headB==null){
+//             return null;
+//         }
+//         ListNode a=headA,b=headB;
+//         while(a!=b){
+//             a=(a==null) ? headB : a.next;
+//             b=(b==null) ? headA : b.next;
+//         }
+//         return a;
+//     }
+// }
+
+
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        HashSet<ListNode> set = new HashSet<>();
-        ListNode curr = headA;
-        while(curr!=null){
-            set.add(curr);
-            curr=curr.next;
+        int lenA=length(headA);
+        int lenB=length(headB);
+        while(lenA>lenB){
+            headA=headA.next;
+            lenA--;
         }
-        curr=headB;
-        while(curr!=null){
-            if(set.contains(curr)){
-                return curr;
+        while(lenA<lenB){
+            headB=headB.next;
+            lenB--;
+        }
+        while(headA!=null || headB!=null){
+            if(headA==headB){
+                return headA;
             }
-            curr=curr.next;
-        }return null;
+            headA=headA.next;
+            headB=headB.next;
+        }
+        return null;
+    }
+    public int length(ListNode head){
+        int len=0;
+        while(head!=null){
+            len++;
+            head=head.next;
+        }
+        return len;
     }
 }
