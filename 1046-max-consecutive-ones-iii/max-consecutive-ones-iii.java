@@ -30,7 +30,7 @@ class Solution {
         int n= nums.length;
         while(r<n){
             if(nums[r]==0)    zero++;
-            while(zero>k){
+            if(zero>k){
                 if(nums[l]==0){
                     zero--;
                 }
