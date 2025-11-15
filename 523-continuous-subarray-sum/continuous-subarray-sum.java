@@ -29,24 +29,25 @@
 //     }
 // }
 
+
 class Solution {
     public boolean checkSubarraySum(int[] nums, int k) {
         Map<Integer,Integer> map = new HashMap<>();
-        map.put(0, -1);
+        map.put(0,-1);
+        int prefix=0;
 
-        int prefix = 0;
-
-        for (int i = 0; i < nums.length; i++) {
+        for(int i=0;i<nums.length;i++){
             prefix += nums[i];
             int mod = prefix % k;
 
-            if (map.containsKey(mod)) {
-                if (i - map.get(mod) >= 2) 
+            if(map.containsKey(mod)){
+                if(i - map.get(mod) >=2){
                     return true;
-            } else {
-                map.put(mod, i); // only put when remainder NOT seen
+                }
             }
-        }
-        return false;
+            else{
+                map.put(mod,i);
+            }
+        }return false;
     }
 }
