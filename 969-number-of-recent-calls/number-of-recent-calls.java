@@ -2,7 +2,6 @@ class RecentCounter {
     private List<Integer> l;
     public RecentCounter() {
         l = new ArrayList<>();
-        
     }
     public int ping(int t) {
         l.add(t);
