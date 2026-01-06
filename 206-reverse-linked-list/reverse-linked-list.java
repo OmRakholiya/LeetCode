@@ -8,18 +8,18 @@
 //  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 //  * }
 //  */
-// class Solution {
-//     public ListNode reverseList(ListNode head) {
-//         ListNode prev =null;
-//         ListNode curr=head;
-//         while(curr!=null){
-//             ListNode temp=curr.next;
-//             curr.next=prev;
-//             prev=curr;
-//             curr=temp;
-//         }return prev;
-//     }
-// }
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev =null;
+        ListNode tem=head;
+        while(tem!=null){
+            ListNode cur=tem.next;
+            tem.next=prev;
+            prev=tem;
+            tem=cur;
+        }return prev;
+    }
+}
 
 
 
@@ -33,16 +33,16 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class Solution {
-    public ListNode reverseList(ListNode head) {
-        if(head ==null || head.next==null){
-            return head;
-        }
-        ListNode newhead = reverseList(head.next);
-        head.next.next = head;
-        head.next=null;
-        return newhead; 
-    }
-}
+// class Solution {
+//     public ListNode reverseList(ListNode head) {
+//         if(head ==null || head.next==null){
+//             return head;
+//         }
+//         ListNode newhead = reverseList(head.next);
+//         head.next.next = head;
+//         head.next=null;
+//         return newhead; 
+//     }
+// }
 
 
