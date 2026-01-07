@@ -39,55 +39,55 @@
 
 
 
-// class Solution {
-//     public List<List<String>> groupAnagrams(String[] strs) {
-//         HashMap<String,List> map = new HashMap<>();
-
-//         for(String str : strs){
-//             int[] count =new int[26];
-
-//             for(char c : str.toCharArray()){
-//                 freq[c - 'a']++;
-//             }
-//             StringBuilder sb = new StringBuilder();
-//             for(int i: count){
-//                 sb.append('#');
-//                 sb.append(i);
-//             }
-//             String key = sb.toString();
-//             if(map.containsKey(key)){
-//                 map.put(key, new ArrayList<String>());
-//             }
-//             map.get(key).add(str);
-//         }
-//         return new ArrayList<>(map.values());
-//     }
-// }
-
-
-
-
-
-
-
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         HashMap<String,List<String>> map = new HashMap<>();
 
         for(String str : strs){
-            char[] arr = str.toCharArray();
-            Arrays.sort(arr);
-            
-            String key = new String(arr);
+            int[] count =new int[26];
 
+            for(char c : str.toCharArray()){
+                count[c - 'a']++;
+            }
+            StringBuilder sb = new StringBuilder();
+            for(int i: count){
+                sb.append('#');
+                sb.append(i);
+            }
+            String key = sb.toString();
             if(!map.containsKey(key)){
-                map.put(key, new ArrayList<>());
+                map.put(key, new ArrayList<String>());
             }
             map.get(key).add(str);
         }
         return new ArrayList<>(map.values());
     }
 }
+
+
+
+
+
+
+
+// class Solution {
+//     public List<List<String>> groupAnagrams(String[] strs) {
+//         HashMap<String,List<String>> map = new HashMap<>();
+
+//         for(String str : strs){
+//             char[] arr = str.toCharArray();
+//             Arrays.sort(arr);
+            
+//             String key = new String(arr);
+
+//             if(!map.containsKey(key)){
+//                 map.put(key, new ArrayList<>());
+//             }
+//             map.get(key).add(str);
+//         }
+//         return new ArrayList<>(map.values());
+//     }
+// }
 
 
 
