@@ -21,21 +21,53 @@
 // }
 
 
+
+
+
+// class Solution {
+//     public int maxScore(int[] cardPoints, int k) {
+//         int[] l = new int[k+1];
+//         int[] r = new int[k+1];
+//         int n = cardPoints.length;
+
+//         for(int i=1;i<=k;i++){
+//             l[i] = l[i-1]+cardPoints[i-1];
+//             r[i] = r[i-1]+cardPoints[n-i];
+//         }
+
+//         int max=0;
+//         for(int i=0;i<=k;i++){
+//             max=Math.max(max,l[i]+r[k-i]);
+//         }
+//         return max;
+//     }
+// }
+
+
+
+
+
 class Solution {
     public int maxScore(int[] cardPoints, int k) {
-        int[] l = new int[k+1];
-        int[] r = new int[k+1];
-        int n = cardPoints.length;
-
-        for(int i=1;i<=k;i++){
-            l[i] = l[i-1]+cardPoints[i-1];
-            r[i] = r[i-1]+cardPoints[n-i];
+        int tsum=0;
+        int n= cardPoints.length;
+        for(int x : cardPoints){
+            tsum+=x;
+        }
+        if(k==n) return tsum;
+        
+        int windowSize=n-k;
+        int windowSum=0;
+        for(int i=0;i<windowSize;i++){
+            windowSum += cardPoints[i];
         }
 
-        int max=0;
-        for(int i=0;i<=k;i++){
-            max=Math.max(max,l[i]+r[k-i]);
+        int minWindowSum=windowSum;
+        for(int i=windowSize;i<n;i++){
+            windowSum += cardPoints[i];
+            windowSum -= cardPoints[i-windowSize];
+            minWindowSum = Math.min(minWindowSum,windowSum);
         }
-        return max;
+        return tsum-minWindowSum;
     }
 }
