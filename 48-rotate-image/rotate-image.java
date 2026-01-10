@@ -8,17 +8,16 @@ class Solution {
                 matrix[j][i]=tem;
             }
         }
-         for(int i=0;i<n;i++)  reverse(matrix[i]);
-    }
-    public void reverse(int row[]){
-        int l=0;
-        int r=row.length-1;
-        while(l<r){
-            int tem=row[l];
-            row[l]=row[r];
-            row[r]=tem;
-            l++;
-            r--;
-        }
+        for(int i=0;i<n;i++){
+            int l=0;
+            int r=n-1;
+            while(l<r){
+                int tem=matrix[i][l];
+                matrix[i][l]=matrix[i][r];
+                matrix[i][r]=tem;
+                l++;
+                r--;
+            }
+        }  
     }
 }
