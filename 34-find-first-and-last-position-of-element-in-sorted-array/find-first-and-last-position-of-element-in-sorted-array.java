@@ -43,16 +43,51 @@
 
 
 
+// class Solution {
+//     public int[] searchRange(int[] nums, int target) {
+//         int first = -1, last = -1;
+
+//         for (int i = 0; i < nums.length; i++) {
+//             if (nums[i] == target) {
+//                 if (first == -1) first = i;
+//                 last = i;
+//             }
+//         }
+//         return new int[]{first, last};
+//     }
+// }
+
+
+
+
 class Solution {
     public int[] searchRange(int[] nums, int target) {
-        int first = -1, last = -1;
+        int n=nums.length;
+        int l=0;
+        int h=n-1;
+        int idx = -1;
 
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == target) {
-                if (first == -1) first = i;
-                last = i;
+        while(l<=h){
+            int mid = l+(h-l)/2;
+            if(nums[mid]==target){
+                idx=mid;
+                break;
+            }
+            else if(nums[mid]<target){
+                l=mid+1;
+            }
+            else{
+                h=mid-1;
             }
         }
-        return new int[]{first, last};
+        if(idx == -1) return new int[]{-1,-1};
+
+        int left=idx;
+        int right=idx;
+
+        while(left-1 >= 0 && nums[left-1] == target) left--;
+        while(right+1 < n && nums[right+1] == target) right++;
+
+        return new int[]{left,right};
     }
 }
