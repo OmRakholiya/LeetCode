@@ -1,0 +1,53 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+// class Solution {
+//     public int kthSmallest(TreeNode root, int k) {
+//         List<Integer> list = new ArrayList<>();
+//         InOrder(root,list);
+//         return list.get(k-1);
+//     }
+//     public void InOrder(TreeNode root,List<Integer> list){
+//         if(root == null) return;
+//         InOrder(root.left,list);
+//         list.add(root.val);
+//         InOrder(root.right,list);
+//     }
+// }
+
+
+
+class Solution {
+    int count = 0;
+    int ans = 0;
+    public int kthSmallest(TreeNode root, int k) {
+        InOrder(root,k);
+        return ans;
+    }
+    public void InOrder(TreeNode root,int k){
+
+        if(root == null) return;
+        
+        InOrder(root.left, k);
+
+        count++;
+        if(count == k){
+            ans = root.val;
+            return;
+        }
+        InOrder(root.right, k);
+    }
+}
