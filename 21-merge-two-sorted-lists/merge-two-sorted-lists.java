@@ -57,7 +57,7 @@ class Solution {
         }
         if(list1==null)
            curr.next = list2;
-        if(list2==null)
+        else
            curr.next = list1;
         return temp.next;
     }
